@@ -12,9 +12,9 @@ type Offer struct {
 	Tariff	      float64   `json:"tariff"`	
 	StartDate     time.Time `json:"start_date"`
 	EndDate       time.Time `json:"end_date"`
-	AvaialbleUnits uint64   `json:"available_units"`
 	PromoUnits    uint64    `json:"promo_units"`
 	UnitsSold     uint64    `json:"units_sold"`
+	AvaialbleUnits uint64   `json:"available_units"`
 	Enable        bool      `json:"enable"`
 	R1            float64   `json:"r1"`     // Calculado: Discount /  Price
 	R2            float64   `json:"r2"`     // Calculado: Commission / Price

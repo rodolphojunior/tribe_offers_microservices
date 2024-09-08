@@ -7,17 +7,17 @@ import (
 type Company struct {
     ID              uint        `json:"id" gorm:"primaryKey"`
     Cnpj            string      `json:"cnpj" gorm:"unique;not null"`
-    TradeName       string      `json:"trade_name"`  // Novo campo
+    CompanyName     string      `json:"company_name"`
     Description     string      `json:"description"`
+    TradeName       string      `json:"trade_name"` 
     Address         string      `json:"address"`
     PhoneNumber     string      `json:"phone_number"`
     Email           string      `json:"email"`
     Website         string      `json:"website"` 
-    CompanyName     string      `json:"company_name"`  // Novo campo
-    BankName        string      `json:"bank_name"`  // Novo campo
-    AgencyWithDigit string      `json:"agency_with_digit"`   // Novo campo
-    CurrentAccount  string      `json:"current_account"`  // Novo campo
-    DigitAccount    string      `json:"digit_account"`  // Novo campo
+    BankName        string      `json:"bank_name"`  
+    AgencyWithDigit string      `json:"agency_with_digit"`   
+    CurrentAccount  string      `json:"current_account"`  
+    DigitAccount    string      `json:"digit_account"`  
     CreatedAt       time.Time   `json:"created_at"`
     UpdatedAt       time.Time   `json:"updated_at"`
     Offers          []Offer     `json:"offers" gorm:"foreignKey:CompanyID"`

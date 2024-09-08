@@ -10,10 +10,17 @@ func UpdateModels(db *gorm.DB) error {
     // Migrando as alterações nos modelos
     // err := db.AutoMigrate(&models.Company{}, &models.User{}, &models.Offer{})
 
-	// err := db.AutoMigrate(&models.Offer{})
-    // if err != nil {
-    //     return err
-    // }
+	err := db.AutoMigrate(&models.Company{}, 
+                        &models.Consumer{}, 
+                        &models.Coupon{}, 
+                        &models.Offer{}, 
+                        &models.Partner{}, 
+                        &models.Photo{}, 
+                        &models.Transaction{}, 
+                        &models.User{})
+    if err != nil {
+        return err
+    }
 
     // Aqui você pode adicionar outras migrações específicas, como adição ou remoção de colunas
  

@@ -5,7 +5,7 @@ import (
     "net/http"
     "tribo_ofertas_backend/config"
     "tribo_ofertas_backend/routes"
-    // "tribo_ofertas_backend/migrations" // Descomentar para migrações
+    "tribo_ofertas_backend/migrations" // Descomentar para migrações
 
 
 )
@@ -18,7 +18,7 @@ func main() {
     // config.DB.AutoMigrate(&models.Company{}, &models.User{}, &models.Offer{})
 
     // Execute as migrações
-    // migrations.RunMigrations()
+    migrations.RunMigrations()
 
     // Inicia as rotas
     router := routes.InitRoutes()

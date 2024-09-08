@@ -3,11 +3,11 @@ version: '3.8'
 services:
   backend:
     build: .
-    container_name: tribo_ofertas_backend
+    container_name: tribe_offers_microservices_backend
     ports:
       - "8080:8080"
     environment:
-      - DB_HOST=tribo_ofertas_db
+      - DB_HOST=tribe_offers_microservices_db
       - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASSWORD=postgrespassword
@@ -18,7 +18,7 @@ services:
 
   db:
     image: postgres:14
-    container_name: tribo_ofertas_db
+    container_name: tribe_offers_microservices_db
     environment:
       POSTGRES_DB: tribo_ofertas
       POSTGRES_USER: postgres
@@ -35,7 +35,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
-    container_name: tribo_ofertas_pgadmin
+    container_name: tribe_offers_microservices_pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
