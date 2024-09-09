@@ -10,7 +10,10 @@ type Company struct {
     CompanyName     string      `json:"company_name"`
     Description     string      `json:"description"`
     TradeName       string      `json:"trade_name"` 
+    Cep             string      `json:"cep"`
     Address         string      `json:"address"`
+    City            string      `json:"city"`
+    State           string      `json:"state"`
     PhoneNumber     string      `json:"phone_number"`
     Email           string      `json:"email"`
     Website         string      `json:"website"` 

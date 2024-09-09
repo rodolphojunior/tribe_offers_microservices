@@ -14,9 +14,6 @@ func main() {
     // Inicialize o banco de dados
     config.InitDB()
 
-    // Execute as migrações para os novos models
-    // config.DB.AutoMigrate(&models.Company{}, &models.User{}, &models.Offer{})
-
     // Execute as migrações
     migrations.RunMigrations()
 

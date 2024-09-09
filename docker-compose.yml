@@ -15,6 +15,10 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      - coupon_service
+      - transaction_service
+      - qr_code_service
+      - offer_update_service
 
   db:
     image: postgres:14
@@ -32,6 +36,26 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  coupon_service:
+    build: ./microservices/coupon_service
+    ports:
+      - "8084:8084" 
+
+  transaction_service:
+    build: ./microservices/transaction_service
+    ports:
+      - "8085:8085"  
+
+  qr_code_service:
+    build: ./microservices/qr_code_service
+    ports:
+      - "8086:8086"
+
+  offer_update_service:
+    build: ./microservices/offer_update_service
+    ports:
+      - "8087:8087"
 
   pgadmin:
     image: dpage/pgadmin4

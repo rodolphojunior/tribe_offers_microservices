@@ -12,10 +12,7 @@ RUN go mod download
 COPY . .
 
 # Construir o binário do servidor backend
-RUN go build -o /go/bin/tribo_ofertas_backend cmd/main.go
-
-# Construir o binário para o atualizador de ofertas
-RUN go build -o /go/bin/offer_updater cmd/offer_updater.go
+RUN go build -o /go/bin/tribe_offer_microservices_backend cmd/main.go
 
 # Etapa 2: Executar o binário
 FROM alpine:3.18
@@ -23,12 +20,11 @@ FROM alpine:3.18
 WORKDIR /root/
 
 # Copiar os binários construídos na etapa anterior
-COPY --from=build /go/bin/tribo_ofertas_backend .
-COPY --from=build /go/bin/offer_updater .
+COPY --from=build /go/bin/tribe_offer_microservices_backend .
 
 # Expor a porta que o servidor vai usar
 EXPOSE 8080
 
 # Comando para iniciar o servidor
-CMD ["./tribo_ofertas_backend"]
+CMD ["./tribe_offer_microservices_backend"]
 

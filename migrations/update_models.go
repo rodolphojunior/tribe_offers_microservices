@@ -11,13 +11,14 @@ func UpdateModels(db *gorm.DB) error {
     // err := db.AutoMigrate(&models.Company{}, &models.User{}, &models.Offer{})
 
 	err := db.AutoMigrate(&models.Company{}, 
-                        &models.Consumer{}, 
-                        &models.Coupon{}, 
-                        &models.Offer{}, 
-                        &models.Partner{}, 
-                        &models.Photo{}, 
-                        &models.Transaction{}, 
-                        &models.User{})
+                        // &models.Consumer{}, 
+                        // &models.Coupon{}, 
+                        // &models.Offer{}, 
+                        // &models.Partner{}, 
+                        // &models.Photo{}, 
+                        // &models.Transaction{}, 
+                        // &models.User{}
+                    )
     if err != nil {
         return err
     }
