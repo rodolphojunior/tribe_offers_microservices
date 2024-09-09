@@ -9,7 +9,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # Copiar o código do microsserviço de cupom
-COPY ./microservices/coupon_service .
+COPY . ./ 
 
 # Construir o binário do microsserviço de cupom
 RUN go build -o /go/bin/coupon_service .

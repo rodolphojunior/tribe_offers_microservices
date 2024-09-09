@@ -9,7 +9,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # Copiar o código do microsserviço de transação
-COPY ./microservices/transaction_service .
+COPY . ./ 
 
 # Construir o binário do microsserviço de transação
 RUN go build -o /go/bin/transaction_service .

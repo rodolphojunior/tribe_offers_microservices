@@ -15,10 +15,14 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      - coupon_service
-      - transaction_service
-      - qr_code_service
-      - offer_update_service
+      coupon_service:
+        condition: service_started
+      transaction_service:
+        condition: service_started
+      qr_code_service:
+        condition: service_started
+      offer_update_service:
+        condition: service_started
 
   db:
     image: postgres:14

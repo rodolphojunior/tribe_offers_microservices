@@ -5,7 +5,7 @@ WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
 
-COPY ./microservices/offer_update_service .
+COPY . ./ 
 
 RUN go build -o /go/bin/offer_update_service .
 

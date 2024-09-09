@@ -9,7 +9,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # Copiar o código do microsserviço de QR code
-COPY ./microservices/qr_code_service .
+COPY . ./ 
 
 # Construir o binário do microsserviço de QR code
 RUN go build -o /go/bin/qr_code_service .
