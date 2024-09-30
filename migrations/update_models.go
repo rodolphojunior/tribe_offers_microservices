@@ -1,41 +1,38 @@
 package migrations
 
 import (
-    "tribo_ofertas_backend/config"
-    "tribo_ofertas_backend/models"
+    "tribe_offers_microservices/config"
+    "tribe_offers_microservices/models"
     "gorm.io/gorm"
+    "log"
 )
 
+// Função que executa as migrações no banco de dados
 func UpdateModels(db *gorm.DB) error {
-    // Migrando as alterações nos modelos
-    // err := db.AutoMigrate(&models.Company{}, &models.User{}, &models.Offer{})
-
-	err := db.AutoMigrate(&models.Company{}, 
-                        // &models.Consumer{}, 
-                        // &models.Coupon{}, 
-                        // &models.Offer{}, 
-                        // &models.Partner{}, 
-                        // &models.Photo{}, 
-                        // &models.Transaction{}, 
-                        // &models.User{}
-                    )
+    // AutoMigrate dos modelos
+    err := db.AutoMigrate(
+        &models.Offer{},
+        &models.OfferEvaluation{},
+    )
     if err != nil {
         return err
     }
-
-    // Aqui você pode adicionar outras migrações específicas, como adição ou remoção de colunas
- 
-    // Exemplo: Remover uma coluna específica
-    // if err := db.Migrator().DropColumn(&models.Offer{}, "avaiable_units"); err != nil {
-    //     return err
-    // }
-
     return nil
 }
 
+// Função que roda as migrações
 func RunMigrations() {
+    // Verifica se o banco de dados foi inicializado
     db := config.DB
-    if err := UpdateModels(db); err != nil {
-        panic("Failed to update models: " + err.Error())
+    if db == nil {
+        log.Fatal("Falha ao inicializar o banco de dados: instância DB é nula")
     }
+
+    // Executa a função de migração
+    if err := UpdateModels(db); err != nil {
+        log.Fatalf("Falha ao atualizar os modelos: %v", err)
+    }
+
+    log.Println("Migrações concluídas com sucesso")
 }
+

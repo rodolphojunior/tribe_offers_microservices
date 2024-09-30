@@ -2,8 +2,8 @@ package services
 
 import (
     "errors"
-    "tribo_ofertas_backend/models"
-    "tribo_ofertas_backend/utils"
+    "tribe_offers_microservices/models"
+    "tribe_offers_microservices/utils"
     "gorm.io/gorm"
 )
 

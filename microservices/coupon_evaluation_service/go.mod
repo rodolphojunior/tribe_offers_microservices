@@ -1,6 +1,11 @@
-module transaction_service
+module tribe_offers_microservices/microservices/coupon_evaluation_service
 
-go 1.22
+go 1.22.5
+
+require (
+	gorm.io/driver/postgres v1.5.9
+	gorm.io/gorm v1.25.12
+)
 
 require (
 	github.com/jackc/pgpassfile v1.0.0 // indirect
@@ -12,6 +17,4 @@ require (
 	golang.org/x/crypto v0.17.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
-	gorm.io/driver/postgres v1.5.9 // indirect
-	gorm.io/gorm v1.25.12 // indirect
 )

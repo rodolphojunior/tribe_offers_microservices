@@ -1,4 +1,4 @@
-module tribo_ofertas_backend
+module tribe_offers_microservices
 
 go 1.22
 

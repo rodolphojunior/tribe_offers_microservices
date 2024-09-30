@@ -1,7 +1,6 @@
 # Etapa 1: Construir o binário Go
 FROM golang:1.22-alpine AS build
 
-# Definir o diretório de trabalho
 WORKDIR /app
 
 # Copiar go.mod e go.sum para baixar dependências
@@ -19,7 +18,7 @@ FROM alpine:3.18
 
 WORKDIR /root/
 
-# Copiar os binários construídos na etapa anterior
+# Copiar o binário da etapa anterior
 COPY --from=build /go/bin/tribe_offer_microservices_backend .
 
 # Expor a porta que o servidor vai usar
@@ -27,4 +26,5 @@ EXPOSE 8080
 
 # Comando para iniciar o servidor
 CMD ["./tribe_offer_microservices_backend"]
+
 

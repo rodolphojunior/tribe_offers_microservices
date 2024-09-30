@@ -7,11 +7,11 @@ RUN go mod download
 
 COPY . ./ 
 
-RUN go build -o /go/bin/offer_update_service .
+RUN go build -o /go/bin/coupon_redemption_service .
 
 FROM alpine:3.18
 WORKDIR /root/
-COPY --from=build /go/bin/offer_update_service .
+COPY --from=build /go/bin/coupon_redemption_service .
 # Expor a porta que o microsserviço vai usar
-EXPOSE 8087
-CMD ["./offer_update_service"]
+EXPOSE 8089
+CMD ["./coupon_redemption_service"]
